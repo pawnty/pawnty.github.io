@@ -2,7 +2,6 @@
 layout: post
 disqus_comments: yes
 title: "Principal Component Analysis"
-mathjax: true
 ---
 In practice, high-dimensinal data usually can be embedding in a much lower 
 dimensional manifold. We can use *principal component analysis(PCA)* to transform
@@ -13,7 +12,7 @@ such as dimensinal reducing, data visualization and lossy compressing.
 There are two ways to derive PCA, each from a different view, which will 
 be discussed in the next two section.
 
-## Aproxximation View
+## Approximation View
 As the data often lies in a low dimensional manifold, we try to use a low dimensional
 data to aproxximate the original data.
 Suppose we have a original dataset $$\{x_n \in \mathrm R^D\}, n = 1, 2, \dots, N$$, 

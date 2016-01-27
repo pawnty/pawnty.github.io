@@ -2,6 +2,7 @@
 layout: post
 disqus_comments: yes
 title: "Principal Component Analysis"
+mathjax: true
 ---
 In practice, high-dimensinal data usually can be embedding in a much lower 
 dimensional manifold. We can use *principal component analysis(PCA)* to transform

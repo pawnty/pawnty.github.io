@@ -21,8 +21,6 @@ menu:
   - title: 'Categories'
     url: '/categories'
     type: 'categories'
-  - title: 'Archive'
-    url: '/posts'
 
 # Owner/author information
 owner:

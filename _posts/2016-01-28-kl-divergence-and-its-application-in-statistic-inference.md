@@ -6,9 +6,6 @@ modified: 2016-01-28
 tags: [draft]
 categories: [MachineLearning]
 ---
-KL散度及其在统计学习中的应用
-===========================
-
 ##介绍
 
 KL散度（Kullback Leibler Divergence）又称相对熵（Relative Entropy），在信息论中用于表示采用概率$p$的最优编码来传输真实概率为$q$的数据所需要的额外信息量。它的定义式为

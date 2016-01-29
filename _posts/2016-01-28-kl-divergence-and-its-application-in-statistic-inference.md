@@ -3,8 +3,8 @@ layout: post
 title: KL散度及其在统计学习中的应用
 description: "介绍KL散度的定义和性质，以及EM算法、变分推断和"
 modified: 2016-01-28
-tags: [sample post]
-categories: [Machine Learning]
+tags: [draft]
+categories: [MachineLearning]
 ---
 KL散度及其在统计学习中的应用
 ===========================

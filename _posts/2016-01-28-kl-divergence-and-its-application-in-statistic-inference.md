@@ -8,7 +8,7 @@ categories: [MachineLearning]
 ---
 ##介绍
 
-KL散度（Kullback Leibler Divergence）又称相对熵（Relative Entropy），在信息论中用于表示采用概率$p$的最优编码来传输真实概率为$q$的数据所需要的额外信息量。它的定义式为
+KL散度（Kullback Leibler Divergence）又称相对熵（Relative Entropy），在信息论中用于表示采用概率$$p$$的最优编码来传输真实概率为$q$的数据所需要的额外信息量。它的定义式为
 
 $$D(p\|q)=-\int p(x)\ln\frac{q(x)}{p(x)}dx.$$
 

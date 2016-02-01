@@ -39,9 +39,11 @@ $$
 $$
 
 两边对一个关于$W$的分布求积分并整理可得
+
 $$
 \ln p(X;\theta) = \int \ln\frac{ p(X,W;\theta)}{q(W)} q(W)dW - \int \ln \frac{p(W\vert X;\theta)}{q(W)} q(W)dW.
 $$
+
 注意到等式右边第二项是$q(\cdot)$到$p(\cdot\vert X;\theta)$的KL散度$D(q(\cdot)\vert\vert p(\cdot\vert X;\theta))$。由于KL散度非负，所以右边第一项是似然的下界，称之为*ELBO*(evidence lower bound)。
 
 假设ELBO项可以通过优化$\theta$增大，并且对于给定的$\theta$，我们可以求得$p(W\vert X;\theta)$，那么我们就可以采用EM算法来求最大似然的解。

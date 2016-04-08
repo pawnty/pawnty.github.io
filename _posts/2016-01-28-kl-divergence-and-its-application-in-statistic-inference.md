@@ -119,4 +119,25 @@ $$q(w_j)=\frac{\exp\{E_{i\neq j}[\ln p(X,W)]\}}{\exp\{\int E_{i\neq j}[\ln p(X,W
 
 ## 期望传播
 
-变分推断最小化$D(q(W)\vert\vert p(W \vert X)$
+变分推断通过最小化$D(q(W)\vert\vert p(W \vert X))$寻找$p(W\vert X)$的近似分布$q(W)$。如果最小化$D(p(W \vert X)\vert\vert q(W) )$则得到期望传播算法。
+
+在期望传播算法中，使用因子形式表示概率分布更加方便。模型的联合分布可以表示为
+$$p(X,W)=\prod_i f_i(W)$$
+由贝叶斯公式可得出后验概率可表示为
+$$
+p(W\vert\vert X) = \frac{1}{p(X)}\prod_i f_i(W)
+$$
+其中$p(X)=\int \prod_i f_i(W) dW$是一个常量。
+令
+$$q(W)=\frac{1}{Z}\prod_i \hat f _i (W)
+$$
+其中$Z=\int \prod_i \hat f _i (W)dW$。
+KL散度则可表示为
+$$D(p(W \vert X)\vert\vert q(W) )=D(\frac{1}{p(X)}\prod_i f_i(W)\vert\vert \frac{1}{Z}\prod_i \hat f _i (W))$$
+该式涉及到对$p(W \vert X)$的积分，往往无法写出表达式。因此，我们取在其他因子不变的情况下，每次只更新一个因子$\hat f _j (W)$策略。将$q(W)$更新为最小化
+$$D(\frac{1}{Z_j}f_j(W)q^{-j}(W)\vert\vert q(W))$$
+的形式，再得到
+$$\hat f_j=K\frac{q(W)}{q^{-j}(W)}$$
+其中$$q^{-j}(W)=\prod_{i!=j} \hat f _i (W)\\
+Z_j = \int \frac{1}{Z_j}f_j(W)q^{-j}(W) dW\\
+K = \int \hat f_j(W)q^{-j}(W) dW$$

@@ -21,10 +21,10 @@ $$-\int p(x)\ln\frac{q(x)}{p(x)}dx\ge-\ln(\int p(x)\frac{q(x)}{p(x)}dx)=-\ln 1=0
 
 KL散度之所以不叫距离，是因为它不满足距离所需要具备的性质。距离需要满足以下条件：
 
-1. 非负性：$d(x, y) \ge 0$
-2. 自反性： 如果$d(x, y) = 0$，那么$y=x$;
-2. 对称性：$d(x,y)=d(y,x)$;
-3. 三角不等式：$d(x, y) + d(y, z) \le d(x,z)$
+> 1. 非负性：$d(x, y) \ge 0$
+> 2. 自反性： 如果$d(x, y) = 0$，那么$y=x$;
+> 2. 对称性：$d(x,y)=d(y,x)$;
+> 3. 三角不等式：$d(x, y) + d(y, z) \le d(x,z)$
 
 而KL散度只满足前两条。一般来说$D(q\vert\vert p)\ne D(p\vert\vert q)$，且三角不等式也不满足。例如$x\sim B(\frac{1}{2})$, $y\sim B(\frac{1}{4})$,则 $D(p(x)\vert\vert p(y))=0.144$，而$D(q(x)\vert\vert p(x))=0.131$；$x\sim B(0.9)$,$y\sim B(0.5)$,$z\sim B(0.1)$,则$D(p(x)\vert\vert p(z))=1.76$,$D(p(x)\vert\vert p(y))=0.37$，而$D(p(y)\vert\vert q(z)=0.51$，$D(p(x)\vert\vert p(z))\gt D(p(x)\vert\vert p(y))+D(p(y)\vert\vert p(z))$,不满足三角不等式。
 
@@ -60,10 +60,10 @@ $$
 
 EM算法的步骤：
 
-1. 随机初始化$\theta$
-2. 迭代以下两个步骤直至收敛
-	+ E步骤：使得$q(W)=p(W\vert X;\theta)$;
-	+ M步骤：优化ELBO项，更新$\theta$.
+> 1. 随机初始化$\theta$
+> 2. 迭代以下两个步骤直至收敛
+> 	+ E步骤：使得$q(W)=p(W\vert X;\theta)$;
+> 	+ M步骤：优化ELBO项，更新$\theta$.
 
 注意，在E步骤，由于变化的只是$q$，因此似然并没有变化，又由KL散度的性质可知，此时KL项为0，进而ELBO项变大。在M步骤，优化$\theta$使得ELBO项变大，由于$\theta$变化，故旧的$p$已经不再是$p(W\vert X;\theta)$，因此KL项也变大。而似然是ELBO项和KL项的和，故似然也变大。可见，在达到最优解之前，每一次迭代都会使似然变大。当达到最优解时，$\theta$不再变化，KL项为$0$，ELBO项也达到最优解。
 
@@ -103,9 +103,9 @@ $$
 
 显然，最优解是$q(W)=p(W\vert X)$，但是由于这个后验分布非常复杂，我们无法求出。以此只能退而求其次，求一个简单的近似的分布。其中有一类简单的近似叫做*Mean Field*。假设隐含变量集合$W$由$w_1,w_2,\cdots,w_m$，那么mean field假设近似分布满足$q(W)=\prod_j q(w_j) $的形式，即各个隐含变量彼此相互独立。在这个假设下迭代优化各个独立的隐含变量直至收敛。算法如下：
 
-1. 随机初始化各个隐含变量的分布$q(w_j), j=1,2,\cdots,m$;
-2. 迭代直至收敛
-	+ 对越每个隐含变量$w_j$，在其他变量的分布不变的情况下，优化其分布使得ELBO最大
+> 1. 随机初始化各个隐含变量的分布$q(w_j), j=1,2,\cdots,m$;
+> 2. 迭代直至收敛
+> 	+ 对越每个隐含变量$w_j$，在其他变量的分布不变的情况下，优化其分布使得ELBO最大
 
 在上面的优化步骤中，每一个隐含变量的分布都会被单独更新。例如在优化$w_j$时，子优化问题为
 
@@ -119,7 +119,13 @@ $$q(w_j)=\frac{\exp\{E_{i\neq j}[\ln p(X,W)]\}}{\exp\{\int E_{i\neq j}[\ln p(X,W
 
 ## 期望传播
 
-变分推断通过最小化$D(q(W)\vert\vert p(W \vert X))$寻找$p(W\vert X)$的近似分布$q(W)$。如果最小化$D(p(W \vert X)\vert\vert q(W) )$则得到期望传播算法。
+变分推断通过最小化$D(q(W)\vert\vert p(W \vert X))$寻找$p(W\vert X)$的近似分布$q(W)$。如果最小化$D(p(W \vert X)\vert\vert q(W) )$则得到期望传播算法。限制$q(W)$为指数族分布，则最小化KL散度得到
+
+$$
+E_q[s(W)]=E_p[s(W)]
+$$
+
+其中$u(W)$表示充分统计量。通过上式，我们可以直接匹配出近似分布的参数。
 
 在期望传播算法中，使用因子形式表示概率分布更加方便。模型的联合分布可以表示为
 $$p(X,W)=\prod_i f_i(W)$$
@@ -150,10 +156,22 @@ $$\hat f_j=K\frac{q(W)}{q^{-j}(W)}$$
 
 其中
 
-$$q^{-j}(W)=\prod_{i!=j} \hat f _i (W)$$
+$$
+q^{-j}(W)=\prod_{i!=j} \hat f _i (W)
+$$
 
 $$
-Z_j = \int \frac{1}{Z_j}f_j(W)q^{-j}(W) dW$$
+Z_j = \int \frac{1}{Z_j}f_j(W)q^{-j}(W) dW
+$$
 
 $$
 K = \int \hat f_j(W)q^{-j}(W) dW$$
+
+期望传播算法：
+
+> 1.    随机初始化因子$\hat f_i (W), i=1,2,\dots$
+> 2.    循环更新，直至收敛
+>        1.    计算$q^{-j}(W)=q(W)/\hat f_i(W)$和$Z_j$
+>        2.    更新$q(W)$最小化$D(\frac{1}{Z_j}f_j(W)q^{-j}(W)\vert\vert q(W))$
+>        3.    计算$\hat f_j(W)$
+

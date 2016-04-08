@@ -151,7 +151,9 @@ $$\hat f_j=K\frac{q(W)}{q^{-j}(W)}$$
 其中
 
 $$q^{-j}(W)=\prod_{i!=j} \hat f _i (W)$$
+
 $$
 Z_j = \int \frac{1}{Z_j}f_j(W)q^{-j}(W) dW$$
+
 $$
 K = \int \hat f_j(W)q^{-j}(W) dW$$

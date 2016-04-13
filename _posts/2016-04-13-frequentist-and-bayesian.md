@@ -46,7 +46,7 @@ $$
 
 $$
 \begin{equation}
-p(\theta\vert X)=\frac{p(\theta)\int_Zp(X, Z\vert \theta)dZ}{\int p(\theta)int_Z p(X, Z\vert \theta) dZd\theta}
+p(\theta\vert X)=\frac{p(\theta)\int_Zp(X, Z\vert \theta)dZ}{\int p(\theta)\int_Z p(X, Z\vert \theta) dZd\theta}
 \end{equation}
 $$
 

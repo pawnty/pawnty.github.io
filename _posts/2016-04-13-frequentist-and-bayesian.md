@@ -43,13 +43,15 @@ $$
 
 对于贝叶斯学派，参数的先验概率分布的选择非常重要。先验可以是研究者的直觉、领域专家的知识和经验以及相关的其他方法和数据。贝叶斯学派比较受诟病的一点是，其先验的选取在很大程度上是为了计算上的方便。最常用的一种先验是共轭先验分布。使用共轭先验分布计算出的后验分布会和先验分布保持同一种形式，只是参数不同。例如，多项式分布的共轭先验分布是Beta分布，当使用Beta分布作为先验时，得到的后验分布也是Beta分布。以下是一些调侃贝叶斯学派先验分布选择的主观性的笑话。
 
-<center>
-<img src="http://pawnty.github.io/images/beyesian.png", width=500 />
-</center>
 
-<center>
-<img src="http://pawnty.github.io/images/confidence_interval.png", width=500 />
-</center>
+<img src="http://pawnty.github.io/images/beyesian.png", width=500, alt="beyesian update"/>
+
+![](http://pawnty.github.io/images/beyesian.png)
+
+<img src="http://pawnty.github.io/images/confidence_interval.png", width=500, alt="confidence_interval" />
+
+![](http://pawnty.github.io/images/confidence_interval.png)
+
 > 有一个主人公是美国人的笑话。
 > 问：如果笑话里的人不是美国人，那么这个笑话的好笑程度是增加、不变、还是减少？  
 > 频率学派的学者：减少。

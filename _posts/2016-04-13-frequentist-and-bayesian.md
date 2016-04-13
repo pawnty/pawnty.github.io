@@ -66,14 +66,14 @@ $$
 
 
 
-＃ 实例
+## 实例
 
 抛起一枚可能不均衡的硬币，硬币落下后正面朝上的概率为$\theta$，反面朝上的概率为$1-\theta$。
 某次实验共抛了$n$次，其中正面朝上$x$次。
 
-## 频率学派
+### 频率学派
 
-$\theta$是一个确定的量，抛硬币的过程可以反复一直执行。本次实验的结论是，$\theta$以$1-\alpha$的置信度位于$[L, U]$之间。其中$L,U$是：
+参数$\theta$是一个确定的量，抛硬币的过程可以反复一直执行。本次实验的结论是，$\theta$以$1-\alpha$的置信度位于$[L, U]$之间。其中$L,U$是：
 
 
 
@@ -89,8 +89,9 @@ $$
 \end{equation}
 $$
 
-## 贝叶斯学派
+### 贝叶斯学派
 
+参数$\theta$是不确定的，
 假设$\theta$服从Beta分布：
 
 $$\begin{equation}
@@ -109,15 +110,16 @@ $$\begin{equation}
 \Gamma(t)=\int_0^\infty x^{t-1}e^{-x}dx
 \end{equation}$$
 
-结论：$\theta$的后验分布为
+本次实验的结论是：$\theta$的后验分布为
+
 $$
 \begin{equation}
 p(\theta\vert x)=\frac{p(\theta)p(x|\theta)}{\int p(\theta)p(x|\theta) d\theta}
-= Beta(\theta\vert a + x, a + n - x)
+= Beta(\theta\vert a + x, b + n - x)
 \end{equation}
 $$
 
-＃ 总结
+## 总结
 
 
 | 学派 | 核心思想 | 度量方法 |

@@ -46,7 +46,7 @@ $$
 
 $$
 \begin{equation}
-p(\theta\vert X)=\frac{p(\theta)\int_Zp(X, Z\vert \theta)dZ}{\int p(\theta)p(X, Z\vert \theta) dZd\theta}
+p(\theta\vert X)=\frac{p(\theta)\int_Zp(X, Z\vert \theta)dZ}{\int p(\theta)int_Z p(X, Z\vert \theta) dZd\theta}
 \end{equation}
 $$
 
@@ -74,7 +74,7 @@ $$
 
 ### 频率学派
 
-参数$\theta$是一个确定的量，抛硬币的过程可以反复一直执行。本次实验的结论是，$\theta$以$1-\alpha$的置信度位于$[L, U]$之间。其中$L,U$是：
+参数$\theta$是一个确定的量，抛硬币的过程可以反复一直执行。选取$1-\alpha$为置信度，本次实验的结论是，$\theta$的置信区间为$[L, U]$。其中$L,U$是：
 
 $$
 \begin{equation}
@@ -91,13 +91,7 @@ $$
 ### 贝叶斯学派
 
 参数$\theta$是不确定的，
-假设$\theta$服从Beta分布：
-
-$$\begin{equation}
-\theta \sim \mathrm{Beta}(a, b)
-\end{equation}$$
-
-设定其先验概率为：
+假设$\theta$服从参数为$a, b$的Beta分布，其先验概率为：
 
 $$\begin{equation}
 p(\theta)=\mathrm{Beta}(\theta\vert a, b)=\frac{\Gamma(a+b)}{\Gamma(a)\Gamma(b)}\theta^{a-1}(1-\theta)^{b-1}

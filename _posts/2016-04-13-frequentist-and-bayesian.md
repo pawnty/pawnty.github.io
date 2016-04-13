@@ -6,7 +6,6 @@ modified: 2016-04-13
 tags: [draft]
 categories: [MachineLearning]
 ---
-# 频率学派与贝叶斯学派
 
 ![xkcd](http://imgs.xkcd.com/comics/frequentists_vs_bayesians.png)
 
@@ -23,7 +22,8 @@ categories: [MachineLearning]
 贝叶斯建模一般过程是先为未知的参数选择先验概率分布$p(\theta)$，然后根据贝叶斯公式得到的后验概率
 
 $$\begin{equation}
-p(\theta\vert x)=\frac{p(\theta)p(x\vert \theta)}{\int p(\theta)p(x\vert \theta) d\theta}\label{bayes}
+p(\theta\vert x)=\frac{p(\theta)p(x\vert \theta)}{\int p(\theta)p(x\vert \theta) d\theta}
+\label{bayes}
 \end{equation}
 $$
 

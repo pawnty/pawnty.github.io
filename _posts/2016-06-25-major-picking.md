@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 谈谈高考志愿
+title: 谈高考志愿与大学专业
 description: "又一年高考填志愿随想"
 modified: 2016-06-25
 tags: [draft]
